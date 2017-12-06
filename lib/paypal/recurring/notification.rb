@@ -30,7 +30,7 @@ module PayPal
       end
 
       def params=(params)
-        @params = params.inject({}) do |buffer, (name,value)|
+        @params = params.to_unsafe_h.inject({}) do |buffer, (name,value)|
           buffer.merge(name.to_sym => value)
         end
       end
